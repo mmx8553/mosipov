@@ -24,7 +24,7 @@ package ru.job4j;
 	 * @param second double **param**
 	 */
 	 public void add(double first, double second) {
-		 this.result = 0;
+		 this.result = first + second;
 	 }
 	/**
 	 * вычитание.
@@ -35,7 +35,7 @@ package ru.job4j;
 	 * @param second double **param**
 	 */
 	 public void substruct(double first, double second) {
-		 this.result = 0;
+		 this.result = first - second;
 	 }
 	/**
 	 * деление.
@@ -46,7 +46,7 @@ package ru.job4j;
 	 * @param second double **param**
 	 */
 	 public void div(double first, double second) {
-		 this.result = 0;
+		 this.result = first / second;
 	 }
 	/**
 	 * умножение.
@@ -56,7 +56,7 @@ package ru.job4j;
 	 * @param second double **param**
 	 */
 	 public void multiple(double first, double second) {
-		 this.result = 0;
+		 this.result = first * second;
 	 }
 	/**
 	 * возвращаетрезультат.

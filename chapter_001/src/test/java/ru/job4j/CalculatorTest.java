@@ -24,19 +24,19 @@ public class CalculatorTest {
      * Test of getResult is zero in adding.
      */
 	@Test
-	public void whenAddThenReturnZero() {
+	public void whenAddThenReturnSum() {
 		Calculator calc = new Calculator();
 		calc.add(1, 2);
-		assertThat(calc.getResult(), is(0.0));
+		assertThat(calc.getResult(), is(Double.parseDouble("3.0")));
 	}
 	/**
      * Test of getResult is zero in div.
      */
 	@Test
-	public void whenDivThenReturnZero() {
+	public void whenDivThenReturnDivRez() {
 		Calculator calc = new Calculator();
 		calc.div(1, 2);
-		assertThat(calc.getResult(), is(0.0));
+		assertThat(calc.getResult(), is(Double.parseDouble("0.5")));
 	}
 
 }
