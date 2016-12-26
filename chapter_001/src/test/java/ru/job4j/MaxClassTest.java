@@ -33,4 +33,15 @@ public class MaxClassTest {
 		int second = 0;
 		assertThat(mC.findMax(first, second), is(Integer.valueOf("0")));
 	}
+	/**
+     * Test of max of 3 int numbers.
+     */
+	@Test
+	public void testMaxOfThree() {
+		MaxClass mC = new MaxClass();
+		int first = Integer.valueOf("11");
+		int second = Integer.valueOf("7");
+		int third = Integer.valueOf("15");
+		assertThat(mC.findMaxOfThree(first, second, third), is(Integer.valueOf("15")));
+	}
 }
