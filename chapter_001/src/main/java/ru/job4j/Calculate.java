@@ -23,7 +23,7 @@ public class Calculate {
 	 * @since 06.12.2016
 	 * @return  int int
 	 */
-	public static int add() {
+	public  int add() {
 		return 0;
 	}
 	/**

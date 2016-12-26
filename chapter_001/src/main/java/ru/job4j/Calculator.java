@@ -4,7 +4,6 @@ package ru.job4j;
  * @author mosipov
  * @since 18.12.2016
  * @version 1
- *
  */
  public class Calculator {
 /**
