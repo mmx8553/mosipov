@@ -30,6 +30,6 @@ public class MaxClass {
 	 * @return  int int
 	 */
 	public int findMaxOfThree(int first, int second, int third) {
-		return (this.findMax(first, third) > this.findMax(second, third) ? this.findMax(first, third) : this.findMax(second, third));
+		return this.findMax(first, this.findMax(second, third));
 	}
 }
