@@ -20,10 +20,10 @@ public class Paint {
         StringBuilder sb = new StringBuilder();
         int index = 0;
         int indexSpace;
-        String stLineLeftRight;
-        String stLineCentre;
+        String stLineLeftRight = stringOfSpaces(h - 1);
+        String stLineCentre = " ";
         //index = 0
-        stLineLeftRight = stringOfSpaces(h - 1);
+//        stLineLeftRight = stringOfSpaces(h - 1);
         sb.append(stLineLeftRight).append("^").append(stLineLeftRight).append("\n");  // + \n = ???
         //index = 1..(h-1)
         for (index = 1; index <= (h - 1); index++) {

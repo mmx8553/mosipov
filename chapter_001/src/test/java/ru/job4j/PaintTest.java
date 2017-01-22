@@ -4,6 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 //import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.hamcrest.core.Is.is;
+//import com.google.common.base.Joiner;
+import com.google.common.base;
 
 /**
  * Класс для тестирования.
@@ -28,7 +30,11 @@ public class PaintTest {
 	@Test
 	public void testPiramidTwo() {
 		Paint pnt = new Paint();
-		StringBuilder sb = new StringBuilder();
-		assertThat(pnt.piramid(2), is(sb.append(" ^ ").append("\n").append("^ ^").append("\n").toString()));
+//		StringBuilder sb = new StringBuilder();
+//		StringJoiner sj = new StringJoiner("\n");
+		Joiner jnr = new 	Joiner.on("\n").join(" ^ ",
+												 "^ ^"
+							);
+		assertThat(pnt.piramid(2), is(jnr.toString()));
 	}
 }
