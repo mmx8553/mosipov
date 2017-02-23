@@ -4,8 +4,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 //import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.hamcrest.core.Is.is;
-//import com.google.common.base.Joiner;
-import com.google.common.base;
+import com.google.common.base.Joiner;
+//import com.google.common.base;
+
+
 
 /**
  * Класс для тестирования.
@@ -30,11 +32,10 @@ public class PaintTest {
 	@Test
 	public void testPiramidTwo() {
 		Paint pnt = new Paint();
-//		StringBuilder sb = new StringBuilder();
-//		StringJoiner sj = new StringJoiner("\n");
-		Joiner jnr = new 	Joiner.on("\n").join(" ^ ",
-												 "^ ^"
-							);
-		assertThat(pnt.piramid(2), is(jnr.toString()));
+		String joined;
+		joined = Joiner.on("\n")
+                .useForNull("MISSING")
+                .join(" ^ ", "^ ^", "");
+		assertThat(pnt.piramid(2), is(joined));
 	}
 }
