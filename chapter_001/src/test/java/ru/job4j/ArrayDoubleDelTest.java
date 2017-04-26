@@ -17,10 +17,18 @@ public class ArrayDoubleDelTest {
      * Test of 3 cell array.
      */
 	@Test
-	public void testArrayRotate() {
+	public void testArrayDoubleFirstVariant() {
 		String[] arrayOfStringToCompare = new String[] {"one", "two", "four"};
-		String[] arrayOfStringToCompareInput = new String[] {"one", "two", "one", "four", "two"};
-		ArrayDoubleDel doubleDelClassInstance = new ArrayDoubleDel();
-		assertThat(arrayOfStringToCompare, is(doubleDelClassInstance.doDoubleDel(arrayOfStringToCompareInput)));
+		String[] arrayOfStringToCompareInput = new String[] {"one", "two", "one", "four"};
+		assertThat(arrayOfStringToCompare, is(new ArrayDoubleDel().doDoubleDel(arrayOfStringToCompareInput)));
+	}
+	/**
+     * Test of 8 cell array.
+     */
+	@Test
+	public void testArrayDoubleSecondVariant() {
+		String[] arrayOfStringToCompare = new String[] {"a", "b", "c"};
+		String[] arrayOfStringToCompareInput = new String[] {"a", "b", "c", "c"};
+		assertThat(arrayOfStringToCompare, is(new ArrayDoubleDel().doDoubleDel(arrayOfStringToCompareInput)));
 	}
 }
