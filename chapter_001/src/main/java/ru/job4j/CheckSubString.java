@@ -19,7 +19,6 @@ public class CheckSubString {
      * @return  contains boolean
      */
     public char[] stringToArrayOfChar(String inputString) {
-        /** локальные переменные */
         char[] arOfChar = new char[inputString.length()];
         for (int i = 0; i < inputString.length(); i++) {
             arOfChar[i] = inputString.charAt(i);
@@ -36,7 +35,6 @@ public class CheckSubString {
      * @return  contains boolean
      */
     public boolean contains(String origin, String sub) {
-        /** локальные переменные */
         char[] arOrigin = stringToArrayOfChar(origin);
         char[] arSub = stringToArrayOfChar(sub);
         boolean isArrayContains = true;
@@ -45,11 +43,9 @@ public class CheckSubString {
             if (arOrigin[i] == arSub[0]) {
 				isArrayContains = true;
                 for (int j = 0; j < (arSub.length - 1); j++) {
-                    isArrayContains = isArrayContains & (arSub[j] == arOrigin[i + j]);
+                    isArrayContains &= (arSub[j] == arOrigin[i + j]);
                 }
-                if (isArrayContains) {
-					returnIsArrayContains = true;
-				}
+				returnIsArrayContains |= isArrayContains;
             }
 		}
         return returnIsArrayContains;
