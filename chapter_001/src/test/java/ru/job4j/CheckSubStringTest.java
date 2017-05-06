@@ -21,4 +21,12 @@ public class CheckSubStringTest {
 		CheckSubString chss = new CheckSubString();
 		assertThat(chss.contains("asdfg", "sdf"), is(true));
 	}
+	/**
+     * Test of 3 cell array.
+     */
+	@Test
+	public void testStringContainsSubOneElse() {
+		CheckSubString chss = new CheckSubString();
+		assertThat(chss.contains("asdfg", "dfg"), is(true));
+	}
 }

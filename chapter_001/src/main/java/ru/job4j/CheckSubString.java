@@ -1,7 +1,4 @@
 package ru.job4j;
-
-//import java.util.Arrays;
-//import java.lang.*
 /**
  * Класс - удаление дубликатов из текстового массива.
  * @author mosipov
@@ -10,23 +7,6 @@ package ru.job4j;
  *
  */
 public class CheckSubString {
-	/*
-    /**
-     * проверяющую, что строка sub является подстрокой origin.
-     * @author mosipov
-     * @since 06.01.2017
-     *
-	 * @param  inputString String **param**
-     * @return  contains boolean
-     *111/
-    public char[] stringToArrayOfChar(String inputString) {
-        char[] arOfChar = new char[inputString.length()];
-        for (int i = 0; i < inputString.length(); i++) {
-            arOfChar[i] = inputString.charAt(i);
-        }
-        return arOfChar;
-    }
-	*/
     /**
      * проверяющую, что строка sub является подстрокой origin.
      * @author mosipov
@@ -37,11 +17,11 @@ public class CheckSubString {
      * @return  contains boolean
      */
     public boolean contains(String origin, String sub) {
-        char[] arOrigin = origin.toCharArray();  //stringToArrayOfChar(origin);
-        char[] arSub = sub.toCharArray();  //stringToArrayOfChar(sub);
+        char[] arOrigin = origin.toCharArray();
+        char[] arSub = sub.toCharArray();
         boolean isArrayContains = true;
         boolean returnIsArrayContains = false;
-        for (int i = 0; i < (arOrigin.length - arSub.length); i++) {
+        for (int i = 0; i <= (arOrigin.length - arSub.length); i++) {
             if (arOrigin[i] == arSub[0]) {
 				isArrayContains = true;
                 for (int j = 0; j < (arSub.length - 1); j++) {
