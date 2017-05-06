@@ -10,6 +10,7 @@ package ru.job4j;
  *
  */
 public class CheckSubString {
+	/*
     /**
      * проверяющую, что строка sub является подстрокой origin.
      * @author mosipov
@@ -17,7 +18,7 @@ public class CheckSubString {
      *
 	 * @param  inputString String **param**
      * @return  contains boolean
-     */
+     *111/
     public char[] stringToArrayOfChar(String inputString) {
         char[] arOfChar = new char[inputString.length()];
         for (int i = 0; i < inputString.length(); i++) {
@@ -25,6 +26,7 @@ public class CheckSubString {
         }
         return arOfChar;
     }
+	*/
     /**
      * проверяющую, что строка sub является подстрокой origin.
      * @author mosipov
@@ -35,8 +37,8 @@ public class CheckSubString {
      * @return  contains boolean
      */
     public boolean contains(String origin, String sub) {
-        char[] arOrigin = stringToArrayOfChar(origin);
-        char[] arSub = stringToArrayOfChar(sub);
+        char[] arOrigin = origin.toCharArray();  //stringToArrayOfChar(origin);
+        char[] arSub = sub.toCharArray();  //stringToArrayOfChar(sub);
         boolean isArrayContains = true;
         boolean returnIsArrayContains = false;
         for (int i = 0; i < (arOrigin.length - arSub.length); i++) {

@@ -19,21 +19,11 @@ public class Rotate {
         /** локальные переменные */
 		int arraySize = array[0].length;
 		int[][] tempArray = new int[arraySize][arraySize]; //= {{0, 0}, {0, 0}};  //необходимо инициализировать !? -> поэтому arraySiza
-        int iindex = 0;
-        int jindex = 0;
-		for (jindex = 0; jindex < arraySize; jindex++) {
-			for (iindex = 0; iindex < arraySize; iindex++) {
+		for (int jindex = 0; jindex < arraySize; jindex++) {
+			for (int iindex = 0; iindex < arraySize; iindex++) {
 				tempArray[iindex][jindex] = array[jindex][arraySize - 1 - iindex];
 			}
 		}
         return tempArray;
 	}
-	/**
-	 * tmp.
-	 * @author mosipov
-	 * @since 06.01.2017
-	 *
-	 * @param  arrayOfString  **param**
-	 * @return  array string[]
-	 */
 }
