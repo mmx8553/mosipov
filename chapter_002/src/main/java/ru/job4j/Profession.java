@@ -7,11 +7,11 @@ package ru.job4j;
  */
 public class Profession extends Person {
 	/** some text is have to be here. */
-    Profession() {
+    public Profession() {
         super();
     }
 	/** @param name String **param** */
-    Profession(String name) {
+    public Profession(String name) {
         super(name);
     }
 	/** some text is have to be here. */
@@ -19,8 +19,8 @@ public class Profession extends Person {
 	/** some text is have to be here. */
     private int kindOfEducation;
 	/** some text is have to be here. */
-    void improveSkills() {   }
+    public void improveSkills() {   }
 	/** some text is have to be here. */
-    void goToVacation() {    }
+    public void goToVacation() {    }
 
 }

@@ -7,7 +7,7 @@ package ru.job4j;
  */
 public class Doctor extends Profession {
 	/** @param name String **param** */
-    Doctor(String name) {
+    public Doctor(String name) {
         super(name);
     }
 	/** some text is have to be here. */
@@ -17,7 +17,7 @@ public class Doctor extends Profession {
      * @return  String
      */
     public String heals(Person person) {
-        return ("Доктор " + this.getName() + " лечит " + person.getName());
+        return String.format("Доктор %s лечит %s", this.getName(), person.getName());
     }
 	/**
      * @return  String
