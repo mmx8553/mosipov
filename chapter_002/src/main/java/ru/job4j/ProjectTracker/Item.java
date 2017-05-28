@@ -10,19 +10,36 @@ public class Item {
 	/** id. */
     private String id;
 	/** name. */
-    public String name;
+    private String name;
 	/**	description. */
-    public String description;
+    private String description;
 	/**	create date. */
-    public long create;
+    private long create;
+	/** @param name String **param** */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/** @param description String **param** */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	/** @param create long **param** */
+	public void setCreate(long create) {
+		this.create = create;
+	}
 	/**	construct emty one.  */
     public Item() {
     }
-	/** @param name String **param** */
+	/**
+	*	@param name String **param**
+	*	@param description String **param**
+	*	@param create long **param**
+	*/
     public Item(String name, String description, long create) {
-        this.name = name;
-		this.description = description;
-		this.create = create;
+        this.setName(name);
+		this.setDescription(description);
+		this.setCreate(create);
+		//в конструкторе вызов методов - чем грозит ?
     }
     /**
 	 * @param
@@ -40,9 +57,9 @@ public class Item {
     }
     /**
 	 * @param
-     * @return  String
+     * @return  long
      */
-    public String getCreate() {
+    public long getCreate() {
         return this.create;
     }
     /**
@@ -53,8 +70,7 @@ public class Item {
         return this.id;
     }
     /**
-	 * @param
-     * @return  String
+	 * @param id String  **param**
      */
     public void setId(String id) {
         this.id = id;

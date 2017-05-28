@@ -8,7 +8,7 @@ package ru.job4j.ProjectTracker;
 public class Tracker {
 	/** some text is have to be here. */
     private Item[] items = new Item[100];
-	/** some text is have to be here. */
+	/** some text is have to be here.  Item Id autoincrement - to String */
     private int itemIdCounter = 1;
 	/** some text is have to be here. */
     private int position = 0;
@@ -25,42 +25,78 @@ public class Tracker {
  	 * @param item Item **param**
      */
     public void update(Item item) {
+        Item itemToUpdate = this.findById(item.getId());
+        itemToUpdate = item;  //work fine
+//        itemToUpdate = null;    //not work = why ?
     }
 	/**
  	 * @param item Item **param**
      */
     public void delete(Item item) {
+        if (position > 0) {
+            for (int i = 0; i < position; i++) {
+                if (item != null && (items[i].getId().equals(item.getId()))) {
+                    items[i] = this.items[--position];
+                    this.items[position] = null;
+                    break;
+                }
+            }
+        }
+    }
+	/** @return  Item[] */
+    public Item[] findAll() {
+        Item[] foundItems = new Item[100];
+        int localCounter = 0;
+        for (Item item : this.items) {
+            if (item != null) {
+                foundItems[localCounter++] = item;
+            }
+        }
+        Item[] itemsResult = new Item[localCounter];
+        System.arraycopy(foundItems, 0, itemsResult, 0, localCounter);
+        return itemsResult;
     }
 	/**
-     * @return  Item[]
-     */
-    public Item[] findAll() {
-		return new Item[1];
+	*	@param key String **param**
+	*	@return  Item[]
+	*/
+    public Item[] findByName(String key) {
+        Item[] itemsName = new Item[100];
+        int localCounter = 0;
+        for (Item item : this.items) {
+            if (item != null && key.equals(item.getName())) {
+                itemsName[localCounter++] = item;
+            }
+        }
+        Item[] itemsResult = new Item[localCounter];
+        System.arraycopy(itemsName, 0, itemsResult, 0, localCounter);
+        return itemsResult;
     }
-	
-	public Item[] findByName(String key){
-		
-	}
 	/**
 	 * @param id String **param**
      * @return  Item
      */
-	public Item findById(String id){
-		for (Item item:this.items){
-			if id.equals(item.getId()){
-				return item;
-				// ??? - доживет ли переменная до return-на ?
-			}
-		}
-	}
-	
+    public Item findById(String id) {
+        Item result = null;
+        for (Item item : this.items) {
+            if (item != null && id.equals(item.getId())) {
+                result = item;
+                break;
+            }
+        }
+        return result;
+    }
 	/**
      * @return  String
      */
 	public String generateID() {
-		return String.format("id" + %04d, itemIdCounter++);
-		//can go out of range need - log / exception / test
+		return String.format("id%d", itemIdCounter++);
 	}
+	/**
+     * @return  int
+     */
+	public int getActualItemsCount() {
+		return position;
+	}
+
 }
-
-
