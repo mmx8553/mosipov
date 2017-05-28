@@ -66,9 +66,8 @@ public class FindTest {
         itemChanger.setId(tempId);
         tracker.update(itemChanger);
         Assert.assertThat(itemChanger.getId(), is(tracker.findById(tempId).getId()));
-        Assert.assertThat(item.getName(), is(tracker.findById(tempId).getName()));
-        Assert.assertThat(item.getDescription(), is(tracker.findById(tempId).getDescription()));
-        Assert.assertThat(item.getCreate(), is(tracker.findById(tempId).getCreate()));
-
+        Assert.assertThat(itemChanger.getName(), is(tracker.findById(tempId).getName()));
+        Assert.assertThat(itemChanger.getDescription(), is(tracker.findById(tempId).getDescription()));
+        Assert.assertThat(itemChanger.getCreate(), is(tracker.findById(tempId).getCreate()));
     }
 }

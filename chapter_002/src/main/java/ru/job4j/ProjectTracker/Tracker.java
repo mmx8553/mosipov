@@ -13,7 +13,7 @@ public class Tracker {
 	/** some text is have to be here. */
     private int position = 0;
 	/**
- 	 * @param item Item **param**
+	 * @param item Item **param**
      * @return  Item
      */
     public Item add(Item item) {
@@ -22,13 +22,16 @@ public class Tracker {
 		return item;
     }
 	/**
- 	 * @param item Item **param**
-     */
-    public void update(Item item) {
-        Item itemToUpdate = this.findById(item.getId());
-        itemToUpdate = item;  //work fine
-//        itemToUpdate = null;    //not work = why ?
-    }
+	 * @param item Item **param**
+	*/
+	public void update(Item item) {
+		for (int i = 0; i < 100; i++) {
+			if (this.items[i].getId().equals(item.getId())) {
+				this.items[i] = item;
+				break;
+			}
+		}
+	}
 	/**
  	 * @param item Item **param**
      */
