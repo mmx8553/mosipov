@@ -70,4 +70,11 @@ public class FindTest {
         Assert.assertThat(itemChanger.getDescription(), is(tracker.findById(tempId).getDescription()));
         Assert.assertThat(itemChanger.getCreate(), is(tracker.findById(tempId).getCreate()));
     }
+    /** Test 1 of many.  */
+    @Test
+    public void testStubInput() {
+        Tracker tracker = new Tracker();
+		new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "1", "6"})).init();
+			Assert.assertThat(tracker.findAll()[0].getName(), is("n1"));
+    }
 }

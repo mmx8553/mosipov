@@ -5,10 +5,14 @@ package ru.job4j.ProjectTracker;
 public class StartUI {
 	/** Some text. */
     private Input input;
-	/** @param iface Input **param**
+	/** Some text. */
+    private Tracker tracker;
+	/** @param tracker Tracker **param**
+	*	@param iface Input **param**
 	*/
-    StartUI(Input iface) {
+    StartUI(Tracker tracker, Input iface) {
         this.input = iface;
+        this.tracker = tracker;
     }
 	/** Some text. */
 	public static void mainMenuPrint() {
@@ -28,7 +32,7 @@ public class StartUI {
     }
 	/** Some text. */
     public void init() {
-        Tracker tracker = new Tracker();
+//        Tracker tracker = new Tracker();
         String answer;
         Item itemInstanceToProceed;
         do {
@@ -80,6 +84,7 @@ public class StartUI {
 	/** @param args String[] **param**
 	*/
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput()).init();
+//		work via tests
+//		new StartUI(new ConsoleInput()).init();
     }
 }
