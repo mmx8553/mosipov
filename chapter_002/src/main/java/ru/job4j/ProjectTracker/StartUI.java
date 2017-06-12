@@ -75,6 +75,9 @@ public class StartUI {
                         System.out.println(String.format("%s %s %s", item.getId(), item.getName(), item.getDescription()));
                     }
                     break;
+                case 6:
+                    System.out.println("Exit...");
+                    break;
 				default:
 					wrongEnterance();
 					break;
