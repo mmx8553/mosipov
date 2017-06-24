@@ -19,7 +19,7 @@ public class StrategyTest {
         StringBuilder sb = new StringBuilder();
         sb.append("Square".toString()).append("\r\n");
         Assert.assertThat(localOut.toString(), is(sb.toString()));
-    }    
+	}
 	/** Test 2 of many.  */
 	@Test
     public void testTriangle() {

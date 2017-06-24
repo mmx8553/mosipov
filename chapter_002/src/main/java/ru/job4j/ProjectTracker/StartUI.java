@@ -14,7 +14,7 @@ public class StartUI {
         this.input = iface;
         this.tracker = tracker;
     }
-
+	/** helping method. */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
@@ -23,11 +23,11 @@ public class StartUI {
             menu.show();
             key = Integer.valueOf(this.input.ask("Select:"));
             menu.select(key);
-        } while (key!= 6);
+        } while (key != 6);
                 //(!answer.equals("6"));
     }
-
-    public static void main(String[] args) {
+	/** @param args String[] **param**  */
+     public static void main(String[] args) {
 //        Tracker tracker = new Tracker();
 //        new StartUI(tracker,new ConsoleInput()).init();
 

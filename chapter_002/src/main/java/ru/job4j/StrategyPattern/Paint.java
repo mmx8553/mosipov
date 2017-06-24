@@ -1,11 +1,17 @@
 package ru.job4j.StrategyPattern;
+/**
+ * @since 01.06.2017
+ */
 
-public class Paint {
+ public class Paint {
+	/** var. */
 	private Shape shape;
-	public Paint(Shape shape){
+	/** @param shape Shape  **param** */
+	public Paint(Shape shape) {
 		this.shape = shape;
 	}
-	public void draw(){
+	/** method. */
+	public void draw() {
 		System.out.println(String.valueOf(this.shape.pic()));
 	}
 }

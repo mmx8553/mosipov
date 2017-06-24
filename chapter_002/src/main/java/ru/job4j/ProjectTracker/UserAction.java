@@ -4,9 +4,11 @@ package ru.job4j.ProjectTracker;
  */
 
 public interface UserAction {
-    int key();
-
-    void execute(Input input, Tracker tracker);
-
+	/**  @return  int  */
+     int key();
+	/** @param input Input  **param**
+	 *	@param tracker Tracker  **param**  */
+ void execute(Input input, Tracker tracker);
+	/**  @return  String  */
     String info();
 }
