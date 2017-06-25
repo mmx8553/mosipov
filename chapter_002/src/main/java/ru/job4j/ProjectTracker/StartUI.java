@@ -4,6 +4,8 @@ package ru.job4j.ProjectTracker;
  */
 public class StartUI {
 	/** Some text. */
+    private int[] selectRange = new int[]{1, 2};
+	/** Some text. */
     private Input input;
 	/** Some text. */
     private Tracker tracker;
@@ -14,18 +16,23 @@ public class StartUI {
         this.input = iface;
         this.tracker = tracker;
     }
-	/** helping method. */
+	/** init method. */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
-        int key = 11;
+        //todo - start
+        selectRange = menu.getMenuRange();
         do {
+            try {
             menu.show();
-            key = Integer.valueOf(this.input.ask("Select:"));
-            menu.select(key);
-        } while (key != 6);
-                //(!answer.equals("6"));
+            menu.select(this.input.ask("Select menu :", selectRange));
+            } catch (NullPointerException npe) {
+                System.out.println("something not found  ");
+                npe.printStackTrace();
+            }
+        } while ((this.input.ask("Exit ? (y)").equals("y")) ? false : true);
     }
+
 	/** @param args String[] **param**  */
      public static void main(String[] args) {
 //        Tracker tracker = new Tracker();

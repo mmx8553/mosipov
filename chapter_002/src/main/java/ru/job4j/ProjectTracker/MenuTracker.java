@@ -24,7 +24,21 @@ public class MenuTracker {
         this.actions[3] = new DeleteItem();
         this.actions[4] = new FindItemById();
         this.actions[5] = new ItemsListByName();
-        this.actions[6] = new ExitSystem();
+        //this.actions[6] = new ExitSystem();
+    }
+	/**  @return int[] */
+    public int[] getMenuRange() {
+        int range = 0;
+        for (UserAction uAct:actions) {
+            if (uAct != null) {
+				range++;
+			}
+        }
+        int[] rangeArray = new int[range];
+        for (int i = 0; i < range; i++) {
+            rangeArray[i] = i;
+        }
+        return rangeArray;
     }
 	/** @param key int  **param**
 	*/

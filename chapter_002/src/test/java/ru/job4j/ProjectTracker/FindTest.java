@@ -74,25 +74,25 @@ public class FindTest {
     @Test
     public void testStubInput() {
         Tracker tracker = new Tracker();
-		new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "1", "6"})).init();
+		new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "n", "1", "y"})).init();
 			Assert.assertThat(tracker.findAll()[0].getName(), is("n1"));
     }
     /** Test 2 of 3.  */
     @Test
     public void testStubInputUpdate() {
         Tracker tracker = new Tracker();
-		new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "0", "n2", "d2", "6"})).init();
-		String tempId = tracker.findByName("n1")[0].getId();
-		new StartUI(tracker, new StubInput(new String[] {"2", tempId, "n55", "d55", "6"})).init();
+        new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "n", "0", "n2", "d2", "y"})).init();
+        String tempId = tracker.findByName("n1")[0].getId();
+        new StartUI(tracker, new StubInput(new String[] {"2", tempId, "n55", "d55", "y"})).init();
 		Assert.assertThat(tracker.findByName("n55")[0].getDescription(), is("d55"));
     }
     /** Test 3 of 3.  */
     @Test
     public void testStubInputDelete() {
         Tracker tracker = new Tracker();
-		new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "0", "n2", "d2", "6"})).init();
-		String tempId = tracker.findByName("n1")[0].getId();
-		new StartUI(tracker, new StubInput(new String[] {"3", tempId, "6"})).init();
+        new StartUI(tracker, new StubInput(new String[] {"0", "n1", "d1", "n", "0", "n2", "d2", "y"})).init();
+        String tempId = tracker.findByName("n1")[0].getId();
+        new StartUI(tracker, new StubInput(new String[] {"3", tempId, "y"})).init();
 		Assert.assertThat(tracker.findAll().length, is(1));
     }
 }
