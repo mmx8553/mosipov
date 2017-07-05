@@ -4,19 +4,24 @@ package ru.job4j.ProjectTracker;
  */
 
 public class MenuTracker {
-	/** var. */
+	/** Интерфейс.
+	*/
     private Input input;
-	/** var. */
+	/** Трэкер.
+	*/
     private Tracker tracker;
-	/** var. */
+	/** Пункты меню.
+	*/
     private UserAction[] actions = new UserAction[10];
-	/** @param input Input  **param**
+	/**	конструктор.
+	*	@param input Input  **param**
 	*	@param tracker Tracker  **param**  */
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
-	/** method. */
+	/** Заполнение меню.
+	*/
     public void fillActions() {
         this.actions[0] = new AddItem();
         this.actions[1] = new MenuTracker.ShowItems();
@@ -26,7 +31,9 @@ public class MenuTracker {
         this.actions[5] = new ItemsListByName();
         //this.actions[6] = new ExitSystem();
     }
-	/**  @return int[] */
+	/**	 создание фактического диапазона проверки.
+	*	@return int[]
+	*/
     public int[] getMenuRange() {
         int range = 0;
         for (UserAction uAct:actions) {
@@ -40,12 +47,14 @@ public class MenuTracker {
         }
         return rangeArray;
     }
-	/** @param key int  **param**
+	/**	выполнить выбранный пункт меню.
+	*	@param key int  **param**
 	*/
     public void select(int key) {
         this.actions[key].execute(this.input, this.tracker);
     }
-	/** method. show all menu. */
+	/** show menu.
+	*/
     public void show() {
         for (UserAction action:this.actions) {
             if (action != null) {
@@ -53,31 +62,38 @@ public class MenuTracker {
             }
         }
     }
-	/** some comment. */
+	/** Действие - добавить элемент.
+	*/
     private class AddItem implements UserAction {
 		/**  @return  int  */
         public int key() {
             return 0;
         }
-		/** @param input Input  **param**
-		 *	@param tracker Tracker  **param**  */
+		/**	действие по добавлению.
+		*	@param input Input  **param**
+		*	@param tracker Tracker  **param**
+		*/
         public void execute(Input input, Tracker tracker) {
             //String name = input.ask("");
             tracker.add(new Item(input.ask("Name:"), input.ask("Description:"), (long) System.currentTimeMillis()));
         }
-		/**  @return  String  */
+		/**  @return  String
+		*/
         public String info() {
             return "Add new Item";
         }
     }
-	/** some comment about class. */
+	/** Действие - отобразить элементы.
+	*/
     private static class ShowItems implements UserAction {
-		/**  @return  int  */
+		/**  @return  int
+		*/
         public int key() {
             return 1;
         }
 		/** @param input Input  **param**
-		 *	@param tracker Tracker  **param**  */
+		 *	@param tracker Tracker  **param**
+		 */
         public void execute(Input input, Tracker tracker) {
             //String name = input.ask("");
             System.out.println("Items List :");
@@ -85,79 +101,94 @@ public class MenuTracker {
                 System.out.println(String.format("%s %s %s", item.getId(), item.getName(), item.getDescription()));
             }
         }
-		/**  @return  String  */
+		/**  @return  String
+		*/
         public String info() {
             return "Show all items ( id / name / description )";
         }
     }
 
-	/** some comment about class. */
+	/**  Действие - удалить  элемент.
+	*/
     private class DeleteItem implements UserAction {
-		/**  @return  int  */
+		/**  @return  int
+		*/
         public int key() {
             return 3;
         }
 		/** @param input Input  **param**
-		 *	@param tracker Tracker  **param**  */
+		 *	@param tracker Tracker  **param**
+		 */
         public void execute(Input input, Tracker tracker) {
             //String name = input.ask("");
             Item itemInstanceToProceed = new Item();
             itemInstanceToProceed.setId(input.ask("Id="));
             tracker.delete(itemInstanceToProceed);
         }
-		/**  @return  String  */
+		/**  @return  String
+		*/
         public String info() {
             return "Delete Item.";
         }
     }
-
-	/** some comment about class. */
+	/**  Действие - найти элемент по ID.
+	*/
     private class FindItemById implements UserAction {
-		/**  @return  int  */
+		/**  @return  int
+		*/
         public int key() {
             return 4;
         }
 		/** @param input Input  **param**
-		 *	@param tracker Tracker  **param**  */
+		 *	@param tracker Tracker  **param**
+		 */
         public void execute(Input input, Tracker tracker) {
             Item itemInstanceToProceed = new Item();
             itemInstanceToProceed = tracker.findById(input.ask("Id="));
-            System.out.println(String.format(" Found: %s %s %s", itemInstanceToProceed.getId(), itemInstanceToProceed.getName(), itemInstanceToProceed.getDescription()));
+            if (itemInstanceToProceed != null) {
+				System.out.println(String.format(" Found: %s %s %s", itemInstanceToProceed.getId(), itemInstanceToProceed.getName(), itemInstanceToProceed.getDescription()));
+			}
         }
-		/**  @return  String  */
+		/**  @return  String
+		*/
         public String info() {
             return "Find Item by ID: (id, name, desc)";
         }
     }
-
-	/** some comment about class. */
+	/** Действие - найти элемент по имени.
+	*/
     private class ItemsListByName implements UserAction {
-		/**  @return  int  */
+		/**  @return  int
+		*/
         public int key() {
             return 5;
         }
 		/** @param input Input  **param**
-		 *	@param tracker Tracker  **param**  */
+		 *	@param tracker Tracker  **param**
+		 */
         public void execute(Input input, Tracker tracker) {
             for (Item item : tracker.findByName(input.ask("Name? = "))) {
                 System.out.println(String.format("%s %s %s", item.getId(), item.getName(), item.getDescription()));
             }
         }
-		/**  @return  String  */
+		/**  @return  String
+		*/
         public String info() {
             return "Items List by NAME: (id, name, desc)";
         }
     }
 }
-
-/** some comment about class. */
+/** Действие - редактировать элемент.
+*/
 class EditItem implements UserAction {
-	/**  @return  int  */
+	/**  @return  int
+	*/
     public int key() {
         return 2;
     }
 	/** @param input Input  **param**
-	 *	@param tracker Tracker  **param**  */
+	 *	@param tracker Tracker  **param**
+	 */
     public void execute(Input input, Tracker tracker) {
         Item itemInstanceToProceed = new Item();
         itemInstanceToProceed.setId(input.ask("Enter Item Id :"));
@@ -165,23 +196,27 @@ class EditItem implements UserAction {
         itemInstanceToProceed.setDescription(input.ask("Enter Item Desc :"));
         tracker.update(itemInstanceToProceed);
     }
-	/**  @return  String  */
+	/**  @return  String
+	*/
     public String info() {
         return "Edit item";
     }
 }
-
-/** some comment about class. */
+/** Действие - выйти.
+*/
 class ExitSystem implements UserAction {
-	/**  @return  int  */
+	/**  @return  int
+	*/
     public int key() {
         return 6;
     }
 	/** @param input Input  **param**
-	 *	@param tracker Tracker  **param**  */
+	 *	@param tracker Tracker  **param**
+	 */
     public void execute(Input input, Tracker tracker) {
     }
-	/**  @return  String  */
+	/**  @return  String
+	*/
     public String info() {
         return "Exit.";
     }

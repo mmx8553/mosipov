@@ -1,13 +1,19 @@
 package ru.job4j.ProjectTracker;
 /**
  * Interface = Input.
+ * @author mosipov
+ * @since 18.06.2017
+ * @version 1
+ *
  */
 public interface Input {
-	/** @param question String **param**
+	/**	Вопрос-ответ.
+	*	@param question String **param**
 	* 	@return  String
 	*/
 	String ask(String question);
-	/** @param question String **param**
+	/**	Вопрос-ответ с проверкой диапазона.
+	*	@param question String **param**
 	*	@param range int[] **param**
 	* 	@return  int
 	*/

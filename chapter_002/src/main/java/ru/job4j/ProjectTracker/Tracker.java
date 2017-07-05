@@ -6,11 +6,14 @@ package ru.job4j.ProjectTracker;
  * @version 1
  */
 public class Tracker {
-	/** some text is have to be here. */
+	/** Элементы.
+	*/
     private Item[] items = new Item[100];
-	/** some text is have to be here.  Item Id autoincrement - to String */
+	/** Item Id autoincrement - to String.
+	*/
     private int itemIdCounter = 1;
-	/** some text is have to be here. */
+	/** указатель текущей позиции.
+	*/
     private int position = 0;
 	/**
 	 * @param item Item **param**
@@ -26,7 +29,7 @@ public class Tracker {
 	*/
 	public void update(Item item) {
 		for (int i = 0; i < 100; i++) {
-			if (this.items[i].getId().equals(item.getId())) {
+			if ((items[i] != null) && this.items[i].getId().equals(item.getId())) {
 				this.items[i] = item;
 				break;
 			}
@@ -46,7 +49,8 @@ public class Tracker {
             }
         }
     }
-	/** @return  Item[] */
+	/** @return  Item[]
+	*/
     public Item[] findAll() {
         Item[] foundItems = new Item[100];
         int localCounter = 0;

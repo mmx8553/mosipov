@@ -1,25 +1,31 @@
 package ru.job4j.ProjectTracker;
-//import java.util.Scanner;
 /**
- * Interface = Input implementation.
+ * Interface = Input implementation - auto input answers.
+ * @author mosipov
+ * @since 18.06.2017
+ * @version 1
+ *
  */
 public class StubInput implements Input {
-	/** 000. */
+	/** auto answers. */
 	private String[] answers;
-	/** 000. */
+	/** answer pointer. */
 	private int position = 0;
-	/** @param answers String[] **param**
+	/**	конструктор с параметром.
+	*	@param answers String[] **param**
 	*/
 	public StubInput(String[] answers) {
 		this.answers = answers;
 	}
-	/** @param question String **param**
+	/**	 Автоответ.
+	*	@param question String **param**
 	* 	@return  String
 	*/
 	public String ask(String question) {
 		return this.answers[position++];
 	}
-	/** @param question String **param**
+	/** Автоответ в проверкой диапазона ответов.
+	*	@param question String **param**
 	*	@param range int[] **param**
 	* 	@return  int
 	*/

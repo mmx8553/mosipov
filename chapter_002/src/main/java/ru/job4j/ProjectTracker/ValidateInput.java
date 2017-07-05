@@ -1,6 +1,9 @@
 package ru.job4j.ProjectTracker;
 /**
- * Created  24.06.2017.
+ * Класс - наследник консольного ввода - с проверкой формата ввода.
+ * @author mosipov
+ * @since 24.06.2017
+ * @version 1
  */
 public class ValidateInput extends ConsoleInput {
 	/** @param question String **param**
@@ -20,7 +23,6 @@ public class ValidateInput extends ConsoleInput {
             } catch (NumberFormatException nfe) {
                 System.out.println("Please enter valid format number...");
             }
-
         } while (invalid);
         return value;
     }
