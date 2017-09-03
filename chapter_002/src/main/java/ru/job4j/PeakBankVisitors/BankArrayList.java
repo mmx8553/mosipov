@@ -13,13 +13,13 @@ public class BankArrayList {
 
     /**
 	 * компаратор для сортировки коллекции.
-     */
     //todo ??? = реализуется только 1 метод из интерфейса КОМПАРАТОР = почему только 1, а не все в обязательном порядке ?
     private Comparator<ArrayItem> comparator = new Comparator<ArrayItem>() {
         public int compare(ArrayItem a1, ArrayItem a2) {
 			return (a1.getTime() - a2.getTime());
         }
     };
+	*/
     /**
      * инкапсулированный ArrayList для сортировки.
      */
@@ -37,7 +37,12 @@ public class BankArrayList {
      * @return getSortedArrayList ArrayList<ArrayItem>
      */
     public ArrayList<ArrayItem> getSortedArrayList() {
-        Collections.sort(this.arrList, this.comparator);
+//        Collections.sort(this.arrList , this.comparator);
+        Collections.sort(this.arrList, new Comparator<ArrayItem>() {
+                    public int compare(ArrayItem a1, ArrayItem a2) {
+                        return (a1.getTime() - a2.getTime());
+                    }
+        });
         return ((ArrayList<ArrayItem>) arrList);
     }
     /**
