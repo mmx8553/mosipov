@@ -16,7 +16,15 @@ public class Person {
      * если конструктор без параметров, то вставлется случайное время посещения.
      */
     Person() {
-        MyUtils.setRandomInOutTimeToPrson(this);
+        int timeOne = MyUtils.getRandomTime();
+        int timeTwo = MyUtils.getRandomTime();
+        if (timeOne < timeTwo) {
+            this.settIn(timeOne);
+            this.settOut(timeTwo);
+        } else {
+            this.settIn(timeTwo);
+            this.settOut(timeOne);
+        }
     }
     /**
      * конструктор с инициализацией данных.
